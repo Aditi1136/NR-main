@@ -1,9 +1,11 @@
 import { useState } from "react"
+import Logos from "../assets/img/logo.png";
+import { Link } from "react-router-dom";
 
 const Logo =() =>{
     return (
      <a href="/">
-     <img alt="logo" className="logo" src="https://s3.amazonaws.com/zaubatrademarks/f112b91b-ddb5-4696-9e73-9a7c7fc6078a.png" />
+     <img alt="logo" className="logo" src={Logos} />
      </a>
     )
  }
@@ -17,9 +19,9 @@ const Logo =() =>{
      <Logo />
      <div className="nav-items">
      <ul>
-         <li>Home</li>
-         <li>About Us</li>
-         <li>Contact Us</li>
+        <li><Link to ="/"> Home</Link></li>
+        <li><Link to ="/about"> About</Link></li>
+        <li><Link to ="/contact"> Contact</Link></li>
          <li>Cart</li>
          {
             (isLoggedIn)? <button onClick={()=>{

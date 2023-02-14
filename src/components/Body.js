@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { restaurantList } from "../config"
 import RestaurantCard from "./RestaurantCard"
 import Shimmer from "./Shimmer"
+import { Link } from "react-router-dom"
 
 
 function filterData(searchtxt,restaurants){
@@ -21,7 +22,7 @@ const Body = () =>{
     },[])
 
     async function getRestaurant(){
-        const data = await fetch ("https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&page_type=DESKTOP_WEB_LISTING")
+        const data = await fetch ("https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.572315433053607&lng=73.90913332829118&page_type=DESKTOP_WEB_LISTING")
         const json = await data.json();
         setAllRestaurants(json?.data?.cards[2].data?.data?.cards)
         setFilteredRestaurants(json?.data?.cards[2].data?.data?.cards)
@@ -52,7 +53,7 @@ const Body = () =>{
             {
               filteredRestaurants.map(restaurant =>{
                 return (restaurant?.length === 0) ? <h1>Not available</h1> :(
-                    <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>
+                   <Link to={"/restaurant/"+restaurant.data.id}><RestaurantCard {...restaurant.data} key={restaurant.data.id}/></Link> 
                 )
                 
               })  
