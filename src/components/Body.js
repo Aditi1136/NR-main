@@ -3,6 +3,7 @@ import { restaurantList } from "../config"
 import RestaurantCard from "./RestaurantCard"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
+import useOnline from "../Utils/useOnline"
 
 
 function filterData(searchtxt,restaurants){
@@ -27,6 +28,12 @@ const Body = () =>{
         setAllRestaurants(json?.data?.cards[2].data?.data?.cards)
         setFilteredRestaurants(json?.data?.cards[2].data?.data?.cards)
         console.log(json)
+    }
+
+    const isOnline = useOnline()
+
+    if (!isOnline){
+        return <h1> OOPS, you are OFFLINE, please check your connection </h1>
     }
 
     if (!allRestaurants) return null;
