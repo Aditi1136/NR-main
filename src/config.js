@@ -1,8 +1,9 @@
- export const IMG_CDN_URL = 
+ export const IMG_CDN = 
  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
  export const REST_API_URL =
- "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/menu/v4/full?lat=18.572315433053607&lng=73.90913332829118&menuId="
+ "https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId="
+ 
  export const restaurantList=[
     {
       "type": "restaurant",
