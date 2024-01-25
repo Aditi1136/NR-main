@@ -1,8 +1,20 @@
 import React from 'react'
 import { IMG_CDN } from '../config'
+import { useDispatch } from 'react-redux'
+import { addToCart, removeFromCart } from '../utils/cartSlice';
+import { Link } from 'react-router-dom';
 
-const ItemCards = ({items}) => {
-    console.log(items[4]?.card?.info?.name)
+const ItemCards = ({items, menucard}) => {
+    //console.log(items[4]?.card?.info?.name)
+    const dispatch = useDispatch();
+
+    const handleAddtoCart=(item) => {
+        dispatch(addToCart(item))
+    }
+
+    const handleRemoveCart= (item) => {
+        dispatch(removeFromCart(item))
+    }
   return (
     <div>
         {items.map(item => (
@@ -16,7 +28,12 @@ const ItemCards = ({items}) => {
             <p className='text-xs p-2'>
                 {item?.card?.info?.description}
             </p>
-            <button className="bg-gray-500 hover:bg-gray-400 text-white py-2 px-4 m-2 rounded">Add to cart</button>
+            {menucard ? 
+            <button className="bg-gray-500 hover:bg-gray-400 text-white py-2 px-4 m-2 rounded" onClick={() => handleAddtoCart(item)}>
+                <Link to = "/cart">Add to Cart</Link>
+            </button> 
+            :       
+            <button className="bg-gray-500 hover:bg-gray-400 text-white py-2 px-4 m-2 rounded" onClick={() => handleRemoveCart(item)}>Remove Item</button>}
             </div>
            
             <div className='text-center w-3/12'>

@@ -562,3 +562,21 @@
       "subtype": "basic"
     }
 ]
+
+export const CustomerDetails = [
+  {
+    name: "Customer 1",
+    id:1,
+    descriptiom: "Lorem Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+  },
+  {
+    name: "Customer 2",
+    id:2,
+    descriptiom: "Lorem Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+  },
+  {
+    name: "Customer 3",
+    id:3,
+    descriptiom: "Lorem Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+  }
+]
